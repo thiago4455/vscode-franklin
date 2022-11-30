@@ -1,0 +1,59 @@
+{
+	"fileTypes": [],
+	"injectionSelector": "L:text.html.markdown - (comment, string, meta.paragraph.markdown, markup.math.block.markdown, markup.fenced_code.block.markdown, markup.raw.block.markdown)",
+	"patterns": [
+        {
+            "include": "#franklin_begin_math_block"
+        }
+	],
+	"repository": {
+        "franklin_begin_math_block": {
+			"name": "markup.math.block.markdown",
+			"contentName": "meta.embedded.math.markdown",
+			"begin": "(?<=^\\s*)(\\\\begin{(equation|align|aligned|eqnarray)\\*?})(?![^\\\\]*\\\\begin{(equation|align|aligned|eqnarray)\\*?})",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.definition.math.begin.markdown",
+                    "contentName": "meta.embedded.math.markdown",
+                    "patterns": [
+						{
+							"include": "text.html.markdown.math#math"
+						}
+					]
+				}
+			},
+			"end": "(.*)(\\\\end{(equation|align|aligned|eqnarray)\\*?})",
+			"endCaptures": {
+				"1": {
+					"name": "meta.embedded.math.markdown",
+					"patterns": [
+						{
+							"include": "text.html.markdown.math#math"
+						}
+					]
+				},
+				"2": {
+					"name": "punctuation.definition.math.end.markdown",
+                    "contentName": "meta.embedded.math.markdown",
+                    "patterns": [
+						{
+							"include": "text.html.markdown.math#math"
+						}
+					]
+				}
+			},
+			"patterns": [
+				{
+					"begin": "(^|\\G)",
+					"while": "(^|\\G)(?!.*(\\\\end{(equation|align|aligned|eqnarray)\\*?}))",
+					"patterns": [
+						{
+							"include": "text.html.markdown.math#math"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "markdown.franklin.block"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "vscode-franklin",
+  "displayName": "Franklinjl",
+  "description": "Franklin.jl syntax highlight and snippets",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Language Packs"
+  ],
+  "contributes": {
+    "grammars": [{
+      "scopeName": "markdown.franklin.block",
+      "path": "./syntaxes/md-math-block.tmLanguage.json",
+      "injectTo": [
+        "text.html.markdown"
+      ],
+      "embeddedLanguages": {
+        "meta.embedded.math.markdown": "latex"
+      }
+    }]
+  }
+}
