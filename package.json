@@ -1,8 +1,11 @@
 {
   "name": "vscode-franklin",
-  "displayName": "Franklinjl",
+  "displayName": "Franklin.jl",
   "description": "Franklin.jl syntax highlight and snippets",
-  "version": "0.0.1",
+  "repository": "https://github.com/thiago4455/vscode-franklin",
+  "icon": "dist/franklin.png",
+  "publisher": "0xb074",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.73.0"
   },
